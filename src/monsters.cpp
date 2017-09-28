@@ -759,6 +759,23 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 	}
 
 	pugi::xml_node node;
+	if ((node == monsterNode.child("stats"))){
+		if ((attr = node.attribute("def"))){
+		mType->info.def = pugi::cast<int32_t>(attr.value());
+		} else {
+		std::cout << "[Error - Monsters::loadMonster] Missing def. " << file << std::endl;
+		}
+		if ((attr = node.attribute("atk"))){
+		mType->info.atk = pugi::cast<int32_t>(attr.value());
+		} else {
+		std::cout << "[Error - Monsters::loadMonster] Missing atk. " << file << std::endl;
+		}
+		if ((attr = node.attribute("hp"))){
+		mType->info.hp = pugi::cast<int32_t>(attr.value());
+		} else {
+		std::cout << "[Error - Monsters::loadMonster] Missing hp. " << file << std::endl;
+		}
+	}
 	if ((node = monsterNode.child("health"))) {
 		if ((attr = node.attribute("now"))) {
 			mType->info.health = pugi::cast<int32_t>(attr.value());
@@ -797,6 +814,12 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				mType->info.canPushItems = attr.as_bool();
 			} else if (strcasecmp(attrName, "canpushcreatures") == 0) {
 				mType->info.canPushCreatures = attr.as_bool();
+			} else if (strcasecmp(attrName, "gympoke") == 0) {
+				mType->info.gympoke = attr.as_bool();
+			} else if (strcasecmp(attrName, "ghost") == 0) {
+				mType->info.ghost = attr.as_bool();
+			} else if (strcasecmp(attrName, "starter") == 0) {
+				mType->info.starter = attr.as_bool();
 			} else if (strcasecmp(attrName, "staticattack") == 0) {
 				uint32_t staticAttack = pugi::cast<uint32_t>(attr.value());
 				if (staticAttack > 100) {
@@ -807,6 +830,18 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 				mType->info.staticAttackChance = staticAttack;
 			} else if (strcasecmp(attrName, "lightlevel") == 0) {
 				mType->info.light.level = pugi::cast<uint16_t>(attr.value());
+			} else if (strcasecmp(attrName, "evolvestone1") >= 0) {
+				mType->info.evolvestone1 = pugi::cast<uint32_t>(attr.value());
+			} else if (strcasecmp(attrName, "evolvestone2") >= 0) {
+				mType->info.evolvestone2 = pugi::cast<uint32_t>(attr.value());
+			} else if (strcasecmp(attrName, "evolvetype") >= 0) {
+				mType->info.evolvetype = pugi::cast<uint32_t>(attr.value());
+			} else if (strcasecmp(attrName, "minlevel") >= 0 && strcasecmp(attrName, "minlevel") > 100) {
+				mType->info.minlevel = pugi::cast<uint32_t>(attr.value());
+			} else if (strcasecmp(attrName, "maxlevel") > 0 && strcasecmp(attrName, "maxlevel") >= 100) {
+				mType->info.maxlevel = pugi::cast<uint32_t>(attr.value());
+			} else if (strcasecmp(attrName, "evolutionlevel") >= 0) {
+				mType->info.evolutionlevel = pugi::cast<uint32_t>(attr.value());
 			} else if (strcasecmp(attrName, "lightcolor") == 0) {
 				mType->info.light.color = pugi::cast<uint16_t>(attr.value());
 			} else if (strcasecmp(attrName, "targetdistance") == 0) {
