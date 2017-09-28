@@ -139,6 +139,12 @@ class MonsterType
 		uint32_t conditionImmunities = 0;
 		uint32_t damageImmunities = 0;
 		uint32_t baseSpeed = 200;
+		uint32_t evolutionlevel = 0;
+		uint32_t evolvestone1 = 0;
+		uint32_t evolvestone2 = 0;
+		uint32_t evolvetype = 2;
+		uint32_t minlevel = 0;
+		uint32_t maxlevel = 100;
 
 		int32_t creatureAppearEvent = -1;
 		int32_t creatureDisappearEvent = -1;
@@ -149,11 +155,17 @@ class MonsterType
 		int32_t runAwayHealth = 0;
 		int32_t health = 100;
 		int32_t healthMax = 100;
+		int32_t def = 1;
+		int32_t atk = 2;
+		int32_t hp = 3;
 		int32_t changeTargetChance =0;
 		int32_t defense = 0;
 		int32_t armor = 0;
 
 		bool canPushItems = false;
+		bool ghost = false;
+		bool gympoke = false;
+		bool starter = false;
 		bool canPushCreatures = false;
 		bool pushable = true;
 		bool isSummonable = false;
