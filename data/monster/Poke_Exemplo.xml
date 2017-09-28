@@ -4,9 +4,10 @@
 	<look type="352" corpse="1492"/>
 	<targetchange interval="5000" chance="8"/>
 	<strategy attack="100" defense="0"/>
+	<stats def="0" atk="0" hp="0">
 	<flags>
 		<flag gympoke = "0" />
-		<fag starter = "1" />
+		<flag starter = "1" />
 		<flag evolutionlevel = "16" />
 		<flag summonable ="1"/>
 		<flag evolvestone1 = "0" />
