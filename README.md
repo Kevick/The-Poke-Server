@@ -6,6 +6,13 @@
 * [Compilando em linux](https://github.com/xtibia/The-PokeServer/wiki/Compilando-no-linux)
 
 
-### Sistemas prontos:
-* Go/Back
-* Catch
+### Sistemas:
+* Go/Back **completo**
+* Catch **completo**
+* Order **novo**
+* Evolution **novo**
+
+
+### Trabalho em progresso:
+* Pokebolas
+* Criar um client para o servidor
