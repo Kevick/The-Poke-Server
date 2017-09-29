@@ -1,6 +1,7 @@
 -- Combat settings
 -- NOTE: valid values for worldType are: "pvp", "no-pvp" and "pvp-enforced"
 worldType = "pvp"
+allowBlockSpawn = false
 hotkeyAimbotEnabled = true
 protectionLevel = 1
 killsToRedSkull = 3
