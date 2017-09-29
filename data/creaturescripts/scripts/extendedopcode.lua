@@ -13,12 +13,12 @@ function onExtendedOpcode(player, opcode, buffer)
 	if opcode == 123 then
 			local poke = player:getSummons()[1] or player:getSummons()
 		if buffer == "evolve" then
-			if pokes[poke:getName()].ev == "null" then return false end
-				if player:getLevel() >= pokes[poke:getName()].maxlevel then
+			if poke:getEvolution() == "null" then return false end
+				if player:getLevel() >= poke:getMaxLevel() then
 				local pokenome = poke:getName()
 				local pokepos = poke:getPosition()
 				poke:remove()
-			local poket = Game.createMonster(pokes[pokenome].ev, pokepos)
+			local poket = Game.createMonster(poke:getEvolution(), pokepos)
 			poket:setMaster(player)
 			player:say("Oh!\nMeu "..pokenome.." evoluiu para "..poket:getName().."!", TALKTYPE_ORANGE_1)
 		else
