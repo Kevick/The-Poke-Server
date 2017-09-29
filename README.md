@@ -1,4 +1,4 @@
-# The-PokeServer
+# The-Poke-Server
   Uma base de poketibia incentivada pelo xTibia, e desenvolvido pela comunidade
   
   
