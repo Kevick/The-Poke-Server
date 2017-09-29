@@ -2488,6 +2488,8 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("MonsterType", "getExperience", LuaScriptInterface::luaMonsterTypeGetExperience);
 
 	registerMethod("MonsterType", "getCatchRate", LuaScriptInterface::luaMonsterTypeGetCatchRate);
+	registerMethod("MonsterType", "getEvolution", LuaScriptInterface::luaMonsterTypeGetEvolution);
+	registerMethod("MonsterType", "getMaxLevel", LuaScriptInterface::luaMonsterTypeGetMaxLevel);
 	registerMethod("MonsterType", "getCombatImmunities", LuaScriptInterface::luaMonsterTypeGetCombatImmunities);
 	registerMethod("MonsterType", "getConditionImmunities", LuaScriptInterface::luaMonsterTypeGetConditionImmunities);
 
@@ -11624,6 +11626,28 @@ int LuaScriptInterface::luaMonsterTypeGetCatchRate(lua_State* L)
 	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
 	if (monsterType) {
 		lua_pushnumber(L, monsterType->info.cathRate);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+int LuaScriptInterface::luaMonsterTypeGetMaxLevel(lua_State* L)
+{
+	//monsterType:getMaxLevel()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		lua_pushnumber(L, monsterType->info.maxlevel);
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+int LuaScriptInterface::luaMonsterTypeGetEvolution(lua_State* L)
+{
+	//monsterType:getEvolution()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		pushString(L, monsterType->info.evolution);
 	} else {
 		lua_pushnil(L);
 	}
