@@ -13,7 +13,7 @@ function onExtendedOpcode(player, opcode, buffer)
 	if opcode == 123 then
 			local poke = player:getSummons()[1] or player:getSummons()
 		if buffer == "evolve" then
-			if poke:getEvolution() == "null" then return false end
+			if not poke:getEvolution() or poke:getEvolution() == "null" then return false end
 				if player:getLevel() >= poke:getMaxLevel() then
 				local pokenome = poke:getName()
 				local pokepos = poke:getPosition()
