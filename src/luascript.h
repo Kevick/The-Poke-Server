@@ -1189,6 +1189,8 @@ class LuaScriptInterface
 		static int luaMonsterTypeGetRunHealth(lua_State* L);
 		static int luaMonsterTypeGetExperience(lua_State* L);
 		static int luaMonsterTypeGetCatchRate(lua_State* L);
+		static int luaMonsterTypeGetEvolution(lua_State* L);
+		static int luaMonsterTypeGetMaxLevel(lua_State* L);
 
 		static int luaMonsterTypeGetCombatImmunities(lua_State* L);
 		static int luaMonsterTypeGetConditionImmunities(lua_State* L);
