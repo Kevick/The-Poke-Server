@@ -1,6 +1,6 @@
 function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 	local ballrate = balls[item:getId()].rate
-	local pokerate = pokes[target:getName()].rate
+	local pokerate = target:getCatchRate()
 	local ball = balls[item:getId()]
 	local depot = player:getDepotChest()
 	local pname = target:getName()
@@ -20,7 +20,7 @@ function onUse(player, item, fromPosition, target, toPosition, isHotkey)
 		local ac = math.random(1, 1000)
 			if ac >= 1 and ac <= catchrate then
 				catchball:setAttribute("attack", lastid+1)
-				local catchquery = catchquery .. "('"..pname.."', '"..pokes[pname].vida.."', '"..pokes[pname].vida.."', '".. ball.type .. "', '" .. math.random(1, pokes[pname].maxlevel) .."', '" .. player:getName() .. "', '".. math.random(1, 8) .."', '" .. math.random(1, 8) .. "', '" .. math.random(1, 8) .. "')"
+				local catchquery = catchquery .. "('"..pname.."', '"..pokes[pname].vida.."', '"..pokes[pname].vida.."', '".. ball.type .. "', '" .. math.random(1, target:getMaxLevel()) .."', '" .. player:getName() .. "', '".. math.random(1, 8) .."', '" .. math.random(1, 8) .. "', '" .. math.random(1, 8) .. "')"
 				db.query(catchquery)
 				player:sendTextMessage(MESSAGE_STATUS_CONSOLE_ORANGE, "Gotcha!\n Você capturou um ".. pname .. "!")
 				target:remove()
